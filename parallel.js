@@ -3,7 +3,7 @@
 // Released under the BSD License: http://opensource.org/licenses/BSD-3-Clause
 
 var width = document.body.clientWidth,
-    height = d3.max([document.body.clientHeight-100, 500]);
+    height = d3.max([document.body.clientHeight-200, 400]);
 
 var m = [90, 0, 10, 0],
     w = width - m[1] - m[3],
@@ -286,6 +286,7 @@ function data_table(sample) {
     return a[col] < b[col] ? -1 : 1;
   });
 
+
   var table = d3.select("#food-list")
     .html("")
     .selectAll(".row")
@@ -302,7 +303,7 @@ function data_table(sample) {
 
   table
     .append("span")
-      .text(function(d) { return d.name; })
+      .text(function(d) { return d.name + " (#" + d.Rank + ")" })
 }
 
 // Adjusts rendering speed 
@@ -645,7 +646,7 @@ function export_csv() {
 // scale to window size
 window.onresize = function() {
   width = document.body.clientWidth,
-  height = d3.max([document.body.clientHeight-100, 500]);
+  height = d3.max([document.body.clientHeight-200, 400]);
 
   w = width - m[1] - m[3],
   h = height - m[0] - m[2];
