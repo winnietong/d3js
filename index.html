@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Top 500 Grossing Apps</title>
+    <link rel="stylesheet" type="text/css" href="parallel.css" />
+  </head>
+  <body>
+  <div id="header">
+    <h1>Top 500 Grossing Apps</h1>
+    <button title="Zoom in on selected data" id="keep-data" disabled="disabled">Keep</button>
+    <button title="Remove selected data" id="exclude-data" disabled="disabled">Exclude</button>
+    <button title="Export data as CSV" id="export-data">Export</button>
+    <div class="controls">
+      <strong id="rendered-count"></strong>/<strong id="selected-count"></strong><!--<strong id="data-count"></strong>-->
+      <div class="fillbar"><div id="selected-bar"><div id="rendered-bar">&nbsp;</div></div></div>
+      <strong id="opacity"></strong> opacity.
+      <button id="hide-ticks">Hide Ticks</button>
+      <button id="show-ticks" disabled="disabled">Show Ticks</button>
+      <button id="dark-theme">Dark</button>
+      <button id="light-theme" disabled="disabled">Light</button>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+  <div id="chart">
+    <canvas id="background"></canvas>
+    <canvas id="foreground"></canvas>
+    <canvas id="highlight"></canvas>
+    <svg></svg>
+  </div>
+  <div id="wrap">
+    <div class="third" id="controls">
+      <div class="bright">
+        <h3>What is this?</h3>
+        <p>
+          A multidimensional explorer of <a href="top500.csv">Top 500 Grossing Apps</a> of data from <a href="http://droidmeter.com/">Droid Meter</a>.
+        </p>
+        
+      </div>
+
+      <div class="little-box">
+        <h3>Controls</h3>
+        <p>
+          <strong>Brush</strong>: Drag vertically along an axis.<br/>
+          <strong>Remove Brush</strong>: Tap the axis background.<br/>
+          <strong>Reorder Axes</strong>: Drag a label horizontally.<br/>
+          <strong>Invert Axis</strong>: Tap an axis label.<br/>
+          <strong>Remove Axis</strong>: Drag axis label to left or right edge.<br/>
+        </p>
+      </div>
+      <div class="little-box">
+        <h3>Credits &amp; License</h3>
+          <p>
+            Adapted from examples by<br/>
+            <a href="http://bl.ocks.org/1341021">Mike Bostock</a>
+            <br>
+            <a href="http://bl.ocks.org/1341281">Jason Davies</a>
+            <br>
+            <a href="http://bl.ocks.org/syntagmatic/raw/3267951/">Kai Chang</a>
+          </p>
+          <p>
+            Follow me on <a href="twitter.com/wintopia">Twitter</a><br/>
+          </p>
+        </p>
+      </div>
+    </div>
+    <div  class="third">
+      <small>
+        <!--Last rendered <strong id="render-speed"></strong> lines-->
+      </small>
+      <h3>App Categories</h3>
+      <p id="legend">
+      </p>
+    </div>
+    <div class="third">
+      <h3>Sample of 25 Apps <input type="text" id="search" placeholder="Search Apps..."></input></h3>
+      <p id="food-list">
+      </p>
+    </div>
+  </div>
+  </body>
+  <script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+  <script src="http://documentcloud.github.com/underscore/underscore.js"></script>
+  <script src="parallel.js"></script>
+</html>
